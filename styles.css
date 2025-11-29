@@ -1,0 +1,166 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
+
+
+:root {
+    --back-container: rgb(1, 4, 1);
+    --back-button-lateral: rgb(0, 142, 0);
+    --back-after-li: green;
+
+    --transition-button-lateral: 0.5s ease;
+    --transition-icons-menu-lateral: 0.5s ease;
+    --transition-after-li: 0.5s ease;
+    --transition-menu-lateral: 0.5s ease;
+    --transition-button-lateral-hover: 0.5s ease;
+
+    --color-a-menu-lateral: rgb(255, 255, 255);
+}
+
+
+
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--back-container);
+
+
+    & .insidbar {
+        width: 100%;
+        height: 100px;
+        padding: 20px;
+
+
+
+        & .button-lateral {
+            position: relative;
+            z-index: 2;
+            width: 40px;
+            height: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: var(--transition-button-lateral-hover);
+
+            & span {
+                width: 100%;
+                height: 6px;
+                background-color: var(--back-button-lateral);
+                border-radius: 5px;
+                transition: var(--transition-button-lateral);
+            }
+        }
+        & .button-lateral:hover {
+            transform: translateY(5px) scale(1.1);
+        }
+
+
+
+
+        & .active span:nth-child(1) {
+            transform: translateY(10px) rotate(-40deg);
+        }
+
+        & .active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        & .active span:nth-child(3) {
+            transform: translateY(-4px) rotate(40deg);
+        }
+
+
+
+        & .menu-lateral {
+            position: relative;
+            top: 20px;
+            width: 200px;
+            height: 200px;
+            border-radius: 5px;
+            transform: translateY(-600px);
+            background: linear-gradient(124deg, rgb(0, 26, 1) 0%, rgba(0, 0, 0, 1) 33%, rgba(0, 0, 0, 1) 100%);
+            transition: var(--transition-menu-lateral);
+
+
+            & ul {
+                padding: 0;
+
+                & li {
+                    position: relative;
+                    z-index: 1;
+                    display: flex;
+                    padding: 10px 12px;
+                    width: 55%;
+                    visibility: hidden;
+
+                    & a {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        cursor: pointer;
+                        color: var(--color-a-menu-lateral);
+
+                        & i {
+                            font-size: 20px;
+                            cursor: pointer;
+                            transition: var(--transition-icons-menu-lateral);
+                        }
+                    }
+                }
+
+                & li:hover i {
+                    transform: translateX(5px) rotate(10deg) scale(1.2);
+                }
+
+                & li::after {
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 0%;
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    background-color: var(--back-after-li);
+                    transition: var(--transition-after-li);
+                }
+
+                & li:hover::after {
+                    width: 37%;
+                }
+            }
+
+            & .active li:nth-child(1) {
+                visibility: visible;
+                transition-delay: 0.5s;
+            }
+            & .active li:nth-child(2) {
+                visibility: visible;
+                transition-delay: 0.6s;
+            }
+            & .active li:nth-child(3) {
+                visibility: visible;
+                transition-delay: 0.7s;
+            }
+            & .active li:nth-child(4) {
+                visibility: visible;
+                transition-delay: 0.8s;
+            }
+        }
+
+        & .menu-lateral.active {
+            transform: translateY(0);
+        }
+    }
+}
