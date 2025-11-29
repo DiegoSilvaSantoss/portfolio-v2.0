@@ -14,6 +14,8 @@
     --back-container: rgb(1, 4, 1);
     --back-button-lateral: rgb(0, 142, 0);
     --back-after-li: rgb(0, 128, 0);
+    --back-about-description: rgb(4, 14, 3);
+    --back-item-description: rgb(4, 14, 3);
 
     --transition-button-lateral: 0.5s ease;
     --transition-icons-menu-lateral: 0.5s ease;
@@ -23,8 +25,8 @@
     --transition-background: 0.5s ease;
 
     --color-a-menu-lateral: rgb(255, 255, 255);
-    --color-perfil-h1: rgb(0, 128, 0);
-    --color-perfil-p: rgb(255, 255, 255);
+    --color-perfil-name: rgb(0, 128, 0);
+    --color-perfil-info: rgb(255, 255, 255);
     --color-about-h1: rgb(255, 255, 255);
     --color-about-p: rgb(255, 255, 255);
 }
@@ -38,10 +40,6 @@ body {
     overflow-x: hidden;
     background-color: var(--back-container);
 
-
-    & section {
-        padding: 2rem 6rem;
-    }
 
 
     & .insidbar {
@@ -232,13 +230,13 @@ body {
 
             & .description {
 
-                & h1 {
-                    color: var(--color-perfil-h1);
+                & .name {
+                    color: var(--color-perfil-name);
                     font-size: 40px;
                 }
 
-                & p {
-                    color: var(--color-perfil-p);
+                & .info {
+                    color: var(--color-perfil-info);
                     font-size: 15px;
                 }
             }
@@ -247,36 +245,85 @@ body {
 
 
 
+    & section {
+        padding: 5rem 6rem;
 
-    & .about {
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-        gap: 30px;
-        width: 80%;
-        text-align: center;
-
-
-        & h1 {
-            color: var(--color-about-h1);
-            font-size: 40px;
-        }
-
-        & .description {
-            padding: 20px;
-            height: 50%;
-            width: 100%;
+        & .about {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            gap: 30px;
+            width: 80%;
             text-align: center;
-            background-color: rgb(4, 14, 3);
-            border: solid 1px white;
-            border-radius: 10px;
 
-            & p {
-                color: var(--color-about-p);
+
+            & h1 {
+                color: var(--color-about-h1);
+                font-size: 40px;
+            }
+
+            & .description {
+                padding: 20px;
+                height: 50%;
+                width: 100%;
+                text-align: center;
+                background-color: var(--back-about-description);
+                border: solid 1px white;
+                border-radius: 10px;
+
+                & p {
+                    color: var(--color-about-p);
+                }
+            }
+        }
+    }
+
+
+
+    & section {
+        padding: 5rem 6rem;
+
+        & .list-card {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            width: 100%;
+
+            & .item {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                border-radius: 10px;
+                box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+                & .box-img {
+                    width: 100%;
+                    height: 200px;
+
+
+                    & img {
+                        height: 200px;
+                        object-fit: cover;
+                    }
+                }
+
+                & .description {
+                    padding: 10px;
+                    height: 100%;
+                    background-color: var(--back-item-description);
+
+                    & .title {
+                        color: rgb(255, 255, 255);
+                    }
+                    & .info {
+                        color: white;
+                    }
+                }
             }
         }
     }
 }
+
 body.active {
     overflow: hidden;
 }
