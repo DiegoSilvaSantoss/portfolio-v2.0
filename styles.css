@@ -203,7 +203,7 @@ body {
         width: 100%;
         height: 100vh;
 
-        & .box-content {
+        & .box-perfil {
             display: flex;
             flex-direction: column;
             gap: 20px;
