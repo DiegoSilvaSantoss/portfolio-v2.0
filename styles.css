@@ -89,6 +89,7 @@
             border-radius: 5px;
             transform: translateY(-600px);
             background: linear-gradient(124deg, rgb(0, 26, 1) 0%, rgba(0, 0, 0, 1) 33%, rgba(0, 0, 0, 1) 100%);
+            box-shadow: rgba(117, 117, 117, 0.24) 0px 3px 8px;
             transition: var(--transition-menu-lateral);
 
 
